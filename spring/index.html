@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>Пружинка</title>
+    <script src="ocanvas.min.js"></script>
+    <script src="script.js?<?= time() ?>"></script>
+    <script src="jquery-1.6.1.min.js"></script>
+    <script src="TM.js"></script>
+    <script language="javascript" type="text/javascript" src="flot/jquery.flot.js"></script>
+    <script language="javascript" type="text/javascript" src="jquery.flot.axislabels.js"></script>
+
+</head>
+<body>
+    <div style="float:left; width: 607px">
+        <canvas id="canvasMech" width="600" height="600" style="border:1px solid #000000; float: left;"></canvas> 
+    </div>
+ 
+    <!--график-->
+    <div id="vGraph" style="width:600px; height:600px; border: 1px solid black; margin-left: 700px "></div>
+    
+    
+    <!--слайдеры-->
+    <div  style="margin-left:20px; margin-top:20px; margin-bottom:20px;">
+        <div> <input type="range" id="slider_m" style="width: 150px;" oninput="app.setSlider_m(this.value); document.getElementById('text_m').value = this.value;">
+        m =
+        <input id="text_m" style="width: 5ex;" required pattern="[-+]?([0-9]*\.[0-9]+|[0-9]+)" oninput="
+            // если введено не число - строка не пройдет валидацию по паттерну выше, и checkValidity() вернет false
+            if (!this.checkValidity()) return;
+            app.setSlider_m(this.value);
+            document.getElementById('slider_m').value = this.value;">
+            </div>
+    <br>
+            <div> <input type="range" id="slider_Cx" style="width: 150px;" oninput="app.setSlider_Cx(this.value); document.getElementById('text_Cx').value = this.value;">
+        Cx =
+        <input id="text_Cx" style="width: 5ex;" required pattern="[-+]?([0-9]*\.[0-9]+|[0-9]+)" oninput="
+            // если введено не число - строка не пройдет валидацию по паттерну выше, и checkValidity() вернет false
+            if (!this.checkValidity()) return;
+            app.setSlider_Cx(this.value);
+            document.getElementById('slider_Cx').value = this.value;">
+            <input type="button" style="width: 100px; margin-left:100px" name="" onclick="app.clearTrajectory();" value="Очистить">
+            </div>
+    <br>
+                <div> <input type="range" id="slider_Cy" style="width: 150px;" oninput="app.setSlider_Cy(this.value); document.getElementById('text_Cy').value = this.value;">
+        Cy =
+        <input id="text_Cy" style="width: 5ex;" required pattern="[-+]?([0-9]*\.[0-9]+|[0-9]+)" oninput="
+            // если введено не число - строка не пройдет валидацию по паттерну выше, и checkValidity() вернет false
+            if (!this.checkValidity()) return;
+            app.setSlider_Cy(this.value);
+            document.getElementById('slider_Cy').value = this.value;">
+            <input type ="checkbox" id ="check" style="margin-left:100px;" value="0">Сложное движение
+            </div>
+    <br>
+                <div> <input type="range" id="slider_B" style="width: 150px;" oninput="app.setSlider_B(this.value); document.getElementById('text_B').value = this.value;">
+        B =
+        <input id="text_B" style="width: 5ex;" required pattern="[-+]?([0-9]*\.[0-9]+|[0-9]+)" oninput="
+            // если введено не число - строка не пройдет валидацию по паттерну выше, и checkValidity() вернет false
+            if (!this.checkValidity()) return;
+            app.setSlider_B(this.value);
+            document.getElementById('slider_B').value = this.value;">
+            </div>
+    </div>
+	    <script type="text/javascript">
+	var app = new MainMech(
+		document.getElementById('canvasMech'),
+		document.getElementById('slider_m'),
+		document.getElementById('text_m'),
+		document.getElementById('slider_Cx'),
+		document.getElementById('text_Cx'),
+		document.getElementById('slider_Cy'),
+		document.getElementById('text_Cy'),
+		document.getElementById('slider_B'),
+		document.getElementById('text_B'),
+		document.getElementById('check'));
+	</script>
+
+</body>
+</html>
