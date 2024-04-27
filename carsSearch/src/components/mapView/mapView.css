@@ -1,0 +1,15 @@
+.map_caontainer {
+    border: 5px solid red;
+
+    min-width: 780px;
+    min-height: 780px;
+    position: absolute;
+    left: 0;
+    right:0;
+    top: 50%; 
+    -webkit-transform:translateY(-50%);
+    -moz-transform:translateY(-50%);
+    -ms-transform:translateY(-50%);
+    -o-transform:translateY(-50%);
+    transform:translateY(-50%);
+}
