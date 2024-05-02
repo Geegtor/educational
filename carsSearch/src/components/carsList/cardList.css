@@ -45,6 +45,10 @@ button:hover {
 
 input {
     text-align: center;
-    border: 0
+    border: 0;
+    font-size: 16px;
+    line-height: 1.4em;
+    background: transparent;
+    color: #007bff;
 }
 

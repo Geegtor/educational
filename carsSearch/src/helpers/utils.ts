@@ -13,5 +13,6 @@ export const calculateCoordinates = (cars: Car[]): [number, number] => {
 };
 
 export const getGeneralInfomation =(car: Car): string => {
+    console.log(`${car.name}, ${car.model}, ${car.year}, ${car.price}$`);
     return `${car.name}, ${car.model}, ${car.year}, ${car.price}$`
 }
